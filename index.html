@@ -2,24 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ollama Electron</title>
+  <title>Ollama</title>
 </head>
     <body>
         <meta charset="UTF-8">
-        <h2>Ollama Electron</h2>
+        <h2>Ollama</h2>
         <link rel="stylesheet" href="style.css">
-            <div class="rounded-square">
-            <div id="output"></div>
+        <div class="rounded-square">
+            <div class="chat-container">
+                <div id="output"></div>
 
-            </div>
-            
-            <div class="rounded-square">
                 <div id="prompt-row">
-                    <input id="prompt" type="text" placeholder="Search">
+                    <input id="prompt" type="text" placeholder="Type a message...">
                     <button id="send">Send</button>
                 </div>
-                </div>
-
-            <script src="renderer.js"></script>
+            </div>
+            </div>
+                <script src="renderer.js"></script>
     </body>
 </html>

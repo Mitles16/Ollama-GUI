@@ -12,29 +12,40 @@
 
 #prompt-row {
   display: flex;
-  gap: 10px; /* space between input and button */
+  gap: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
 }
 
 input {
-  flex: 1; /* take remaining space */
-  height: 26px;
-  padding: 0 10px;
+  flex: 1;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  font-size: 14px;
 }
 
 button {
-  height: 26px;
-  padding: 0 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: #0b93f6;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #007acc;
 }
 
 #output {
-  border-top: 1px solid #ccc;
-  padding-top: 10px;
-  min-height: 50px;
-}
-
-h2 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    align-items: center;
+  flex: 1; /* take all remaining vertical space */
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 body {
@@ -44,4 +55,37 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #f7f7f8; /* light gray background */
+}
+
+h2 {
+  text-align: center;
+  padding: 15px 0;
+  margin: 0;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  font-size: 24px;
+}
+
+.message {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 12px;
+  background-color: #e5e5ea; /* user message light gray */
+  align-self: flex-start; /* user messages on left */
+}
+
+.message.user {
+  background-color: #cccccc; /* user messages in blue */
+  color: rgb(0, 0, 0);
+  align-self: flex-end; /* user messages on right */
+}
+
+.chat-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* space between user and AI messages */
+  margin-bottom: 15px; /* space between chat exchanges */
+  padding: 10px 15px;
+  background-color: #f0f0f3; /* subtle card for each chat exchange */
+  border-radius: 15px;
 }
