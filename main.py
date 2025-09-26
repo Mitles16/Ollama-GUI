@@ -1,10 +1,12 @@
 from flask import Flask, request, jsonify
 import requests
+import json
 
-#app = Flask(__name__)
+app = Flask(__name__)
+
 
 def Prompting(prompt):
-
+    output = ''
 
     result = requests.post(
         'http://localhost:11434/api/generate',
@@ -13,9 +15,25 @@ def Prompting(prompt):
     )
 
     for line in result.iter_lines():
-        print(line)
+        try:
+            data = json.loads(line.decode("utf-8"))
+            output += (data['response'])
+        except:
+            pass
+
+    return output # Final Result
+
+@app.route("/api/prompt", methods=["POST"])
+def api_prompt():
+    user_data = request.json
+    prompt = user_data.get('prompt', '')
+
+    if not prompt:
+        return jsonify({"error": "No prompt provided"}), 400
+
+    response_text = Prompting(prompt)
+    return jsonify({"response": response_text})
 
 
-
-
-Prompting('What are you up to?')
+if __name__ == "__main__":
+    app.run(port=5000, debug=True)
