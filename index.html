@@ -4,18 +4,22 @@
   <meta charset="UTF-8">
   <title>Ollama Electron</title>
 </head>
-<body>
-  <meta charset="UTF-8">
-  <h2>Ollama Electron</h2>
-  <link rel="stylesheet" href="style.css">
+    <body>
+        <meta charset="UTF-8">
+        <h2>Ollama Electron</h2>
+        <link rel="stylesheet" href="style.css">
+            <div class="rounded-square">
+            <div id="output"></div>
 
-  <div class="rounded-square">
-    <input id="prompt" type="text" placeholder="Type your prompt here">
-    <button id="send">Send</button>
+            </div>
+            
+            <div class="rounded-square">
+                <div id="prompt-row">
+                    <input id="prompt" type="text" placeholder="Search">
+                    <button id="send">Send</button>
+                </div>
+                </div>
 
-    <div id="output"></div>
-
-    <script src="renderer.js"></script>
-  </div>
-</body>
+            <script src="renderer.js"></script>
+    </body>
 </html>

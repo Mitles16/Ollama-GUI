@@ -1,31 +1,47 @@
-body {
-    background-color: rgb(235, 235, 235);
-}
-
-h2 {
-font-family: Verdana;
-font-size: 40px;
-text-align: center;
-}
-
 .rounded-square {
-  width: 80%;
-  height: 200px;
-  background-color: rgb(235, 235, 235);
+  width: 60%;
+  background-color: rgb(255, 255, 255);
   border-radius: 20px;
-  border: 2px solid rgb(122, 122, 122);
+  border: 1px solid rgb(194, 194, 194);
   display: flex;
-  justify-content: center;
-  margin: 50px auto;
+  flex-direction: column; /* stack children vertically */
   padding: 20px;
-  gap: 15px;
+  gap: 15px; /* space between rows */
+  margin: 50px auto;
+}
+
+#prompt-row {
+  display: flex;
+  gap: 10px; /* space between input and button */
 }
 
 input {
-    height: 20px;
+  flex: 1; /* take remaining space */
+  height: 26px;
+  padding: 0 10px;
 }
 
 button {
-    height: 26px;
-    padding-inline: 20px;
+  height: 26px;
+  padding: 0 20px;
+}
+
+#output {
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  min-height: 50px;
+}
+
+h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    align-items: center;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f7f8; /* light gray background */
 }
