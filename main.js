@@ -1,20 +1,22 @@
-const fetch = require("node-fetch"); // npm install node-fetch@2 if needed
+const { app, BrowserWindow } = require("electron");
+const path = require("path");
 
-// Async function to call your Flask endpoint
-async function askOllama(promptText) {
-  try {
-    const response = await fetch("http://localhost:5000/api/prompt", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt: promptText })
-    });
+function createWindow() {
+  const win = new BrowserWindow({
+    width: 600,
+    height: 400,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false // allows using require in renderer
+    }
+  });
 
-    const data = await response.json();   // Parse JSON
-    console.log("AI Response:", data.response);  // Print AI text in console
-  } catch (err) {
-    console.error("Error calling Ollama:", err);
-  }
+  win.loadFile("index.html");
 }
 
-// Example usage
-askOllama("What are you up to?");
+app.whenReady().then(createWindow);
+
+// Quit app when all windows are closed
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") app.quit();
+});

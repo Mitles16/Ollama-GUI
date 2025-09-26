@@ -1,11 +1,27 @@
 {
-  "name": "ollama-js",
+  "name": "ollama-electron",
   "version": "1.0.0",
+  "main": "main.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node main.js"
+    "start": "concurrently \"python main.py\" \"electron . --no-sandbox\""
   },
   "dependencies": {
-    "node-fetch": "^2.7.0"
-  }
+    "node-fetch": "^2.6.9"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "description": "A simple GUI to make interacting with Ollama Locally a little bit Easier - and to learn some Basic Javascript functionality while developing.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mitles16/Ollama-GUI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mitles16/Ollama-GUI/issues"
+  },
+  "homepage": "https://github.com/Mitles16/Ollama-GUI#readme"
 }
